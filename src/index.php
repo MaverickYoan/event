@@ -38,8 +38,9 @@ try {
             <div class="bar"></div>
         </div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.php">Accueil</a></li>
-            <li><a href="contact.php">Contact</a></li>
+        <li><a href="http://localhost:8003/index.php">Accueil</a></li>
+        <li><a href="http://localhost:8003/voir.php">Voir Dans la région</a></li>
+        <li><a href="http://localhost:8003/contact.php">Contact</a></li>
             <?php if (isset($_SESSION['id_utilisateur'])): ?>
                 <li><a href="deconnexion.php">Déconnexion</a></li>
                 <?php if ($_SESSION['role'] == 'admin'): ?>
