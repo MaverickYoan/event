@@ -3,5 +3,7 @@ CREATE TABLE utilisateurs (
     pseudo VARCHAR(255) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
     mot_de_passe VARCHAR(255) NOT NULL,
-    role VARCHAR(50) DEFAULT 'utilisateur'
+    role VARCHAR(50) DEFAULT 'admin'
 );
+
+INSERT INTO utilisateurs (pseudo, email, mot_de_passe, role) VALUES ('admin', 'admin@example.com', '$2y$10$H.p6F.P6p.P6p.P6p.P6p.P6p.P6p.P6p.P6p.P6p.P6p.P6p.P6', 'admin');
