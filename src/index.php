@@ -31,8 +31,13 @@ try {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <ul class="nav-links">
+<nav class="navbar">
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.php">Accueil</a></li>
             <li><a href="contact.php">Contact</a></li>
             <?php if (isset($_SESSION['id_utilisateur'])): ?>
@@ -46,6 +51,7 @@ try {
             <?php endif; ?>
         </ul>
     </nav>
+
 
     <div class="container">
         <h1>Événements à venir</h1>
@@ -70,5 +76,6 @@ try {
             <?php endif; ?>
         </div>
     </div>
+<script src="js/script.js"></script>
 </body>
 </html>
