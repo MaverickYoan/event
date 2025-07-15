@@ -127,7 +127,7 @@ header {
     position: fixed;
     top: 0;
 }
-#logo {
+#logo, .img-connex {
     display: flex;
     justify-content: center;
 }

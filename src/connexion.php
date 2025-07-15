@@ -47,5 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="btn">Se connecter</button>
         </form>
     </div>
+    <div class="img-connex"><img src="uploads/alien_by_tek2ouf_01_dk2ytmg.jpg" width="30%" alt="alien_by_tek2ouf_01"></div>
 </body>
 </html>
