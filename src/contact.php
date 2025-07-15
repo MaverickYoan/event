@@ -45,7 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body id="content">
     <!-- Navbar section ------------->
-
     <nav class="navbar">
         <div class="hamburger-menu" id="hamburgerMenu">
             <div class="bar"></div>
@@ -53,11 +52,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="bar"></div>
         </div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="http://localhost:8003/index.php">Index</a></li>
-            <li><a class="links" href="http://localhost:8003/contact.php">Contact</a></li>
-            <!-- <li><a class="links" href="http://localhost:8000/espace_prive.php">espace_prive</a></li> -->
-            <!-- <li><a class="links" href="http://localhost:8000/source_calendrier/calendrier.php">calendrier</a></li> -->            
-             <!-- <li><a class="links" href="http://localhost:8000/add.php">Ajout User</a></li> -->
+            <li><a href="index.php">Accueil</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <?php if (isset($_SESSION['id_utilisateur'])): ?>
+                <li><a href="deconnexion.php">Déconnexion</a></li>
+                <?php if ($_SESSION['role'] == 'admin'): ?>
+                    <li><a href="admin.php">Administration</a></li>
+                <?php endif; ?>
+            <?php else: ?>
+                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
+            <?php endif; ?>
         </ul>
     </nav>
     

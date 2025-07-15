@@ -6,9 +6,9 @@ body { margin: 0; font-family: sans-serif; overflow: hidden; }
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: linear-gradient(45deg,rgb(61, 236, 13),rgb(27, 187, 40),rgb(21, 142, 31),rgb(1, 38, 2));
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background: linear-gradient(45deg,rgb(13, 236, 221),rgb(27, 187, 40),rgb(5, 41, 8),rgb(84, 2, 84));
+    background-size: 100% 400%;
+    animation: gradientBG 10s ease-in-out infinite;
 }
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
@@ -171,7 +171,7 @@ header {
     color: white;
     font-family: 'Montserrat', serif;
     font-weight: 900;
-    font-size: 10pt;
+    font-size: 15pt;
     text-decoration: none;
     padding: 5px 10px;
 }
@@ -201,6 +201,9 @@ header {
 .error-message { color:rgb(190, 135, 15); text-align: center; margin-top: 1em; }
 
 
+.contact-form{
+    z-index: -1;
+    }
 
 @media (max-width: 768px) {
 
@@ -221,6 +224,7 @@ color: black;
     .navbar,
     .nav-links, .tagline, .motto {
         mix-blend-mode: difference;
+        z-index: 99;
 
     }
 
@@ -228,22 +232,26 @@ color: black;
         display: none;
         flex-direction: column;
         width: 100%;
-        font-size: 0.5rem;
+        font-size: 1rem;
 
     }
 
     .nav-links li {
         margin: 10px 0;
         text-align: center;
+        z-index: 99;
     }
 
     /* Disposition du menu burger */
     .hamburger-menu {
         display: flex;
+
     }
 
     .nav-links.active {
         display: flex;
+        z-index: -1;
+
     }
 
     .hamburger-menu.active .bar:nth-child(1) {
@@ -258,6 +266,10 @@ color: black;
     .hamburger-menu.active .bar:nth-child(3) {
         transform: rotate(-45deg) translate(10px, -5px);
         /* transform: translateY(0px) rotate(135deg); */
+    }
+
+    .contact-form, .form-group {
+    z-index: 1;
     }
 
     .home img {

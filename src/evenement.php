@@ -39,8 +39,16 @@ if (isset($_SESSION['id_utilisateur'])) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <ul class="nav-links">
+    <header>
+        <div></div>
+    </header>
+<nav class="navbar">
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.php">Accueil</a></li>
             <li><a href="contact.php">Contact</a></li>
             <?php if (isset($_SESSION['id_utilisateur'])): ?>
@@ -54,6 +62,7 @@ if (isset($_SESSION['id_utilisateur'])) {
             <?php endif; ?>
         </ul>
     </nav>
+
 
     <div class="container">
         <div class="event-detail">
@@ -70,7 +79,7 @@ if (isset($_SESSION['id_utilisateur'])) {
             <?php if (isset($_SESSION['id_utilisateur'])): ?>
                 <?php if ($est_inscrit): ?>
                     <a href="desinscription.php?id=<?= $id_evenement ?>" class="btn">Se désinscrire</a>
-                <?php else: ?>
+                <?php else: ?><br><br>
                     <a href="inscription_evenement.php?id=<?= $id_evenement ?>" class="btn">S'inscrire</a>
                 <?php endif; ?>
             <?php else: ?>
@@ -78,5 +87,7 @@ if (isset($_SESSION['id_utilisateur'])) {
             <?php endif; ?>
         </div>
     </div>
+    <script src="js/script.js"></script>
+
 </body>
 </html>

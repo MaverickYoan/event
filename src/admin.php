@@ -22,19 +22,27 @@ $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <ul class="nav-links">
+<nav class="navbar">
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.php">Accueil</a></li>
             <li><a href="contact.php">Contact</a></li>
             <li><a href="deconnexion.php">Déconnexion</a></li>
             <li><a href="admin.php">Administration</a></li>
         </ul>
     </nav>
+    <header>
 
-    <div class="container">
+    
+    </header>
+    <div class="container-adm">
         <h1>Administration des événements</h1>
 
-        <a href="add_event.php" class="btn">Créer un nouvel événement</a>
+        <a href="add_event.php" class="btn-adm">Créer un nouvel événement</a>
 
         <div id="admin-event-list">
             <h2>Liste des événements</h2>
@@ -67,5 +75,6 @@ $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </table>
         </div>
     </div>
+    <script src="js/script.js"></script>
 </body>
 </html>

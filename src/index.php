@@ -53,7 +53,7 @@ try {
     </nav>
 
 
-    <div class="container">
+<div class="container">
         <h1>Événements à venir</h1>
         <div id="event-list">
             <?php if (empty($evenements)): ?>
@@ -66,7 +66,7 @@ try {
                         <p><?= nl2br(htmlspecialchars($event['description'])) ?></p>
                         <?php if (!empty($event['image'])): ?>
                             <img src="<?= htmlspecialchars($event['image']) ?>" alt="Image de <?= htmlspecialchars($event['nom']) ?>" style="max-width: 200px; margin-top: 1em;">
-                        <?php endif; ?>
+                        <?php endif; ?><br><br>
                         <a href="evenement.php?id=<?= $event['id'] ?>" class="btn">Voir l'événement</a>
                         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
                             <a href="delete_event.php?id=<?= $event['id'] ?>" class="btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">Supprimer</a>
@@ -75,7 +75,7 @@ try {
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-    </div>
+</div>
 <script src="js/script.js"></script>
 </body>
 </html>
