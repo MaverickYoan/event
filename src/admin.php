@@ -42,7 +42,7 @@ $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="container-adm">
         <h1>Administration des événements</h1>
 
-        <a href="add_event.php" class="btn-adm">Créer un nouvel événement</a>
+        <a href="add_event.php" class="btn">Créer un nouvel événement</a>
 
         <div id="admin-event-list">
             <h2>Liste des événements</h2>
