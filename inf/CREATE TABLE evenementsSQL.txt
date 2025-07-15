@@ -1,0 +1,25 @@
+CREATE TABLE evenements (
+    id SERIAL PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    lieu VARCHAR(255) NOT NULL,
+    description TEXT,
+    image_path VARCHAR(255) DEFAULT NULL,
+    image_path_url VARCHAR(255) DEFAULT NULL
+);
+
+INSERT INTO evenements (nom, date, lieu, description, image_path, image_path_url) VALUES
+('test_Event', '2025-07-14', 'https://www.nevers-tourisme.com/uploads/2021/11/marker-defaut-48x66.png', 'Test pour création first évènement', 'img/cPlFdMonde.jpg','https://www.nevers-tourisme.com/sit/cest-pas-la-fin-du-monde');
+
+
+
+
+
+
+
+
+---------------------
+
+
+INSERT INTO evenements (nom, date, lieu, description, image_path, image_path_url) VALUES
+('testEvent', '2025-07-14', France, "Test pour création first évènement", 'img/cPlFdMonde.jpg','https://www.nevers-tourisme.com/sit/cest-pas-la-fin-du-monde');
