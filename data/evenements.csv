@@ -1,2 +1,2 @@
-"id","nom","date","lieu","description","image_path","image_path_url"
-1,"test_Event","2025-07-14","https://www.nevers-tourisme.com/uploads/2021/11/marker-defaut-48x66.png","Test pour création first évènement","img/cPlFdMonde.jpg","https://www.nevers-tourisme.com/sit/cest-pas-la-fin-du-monde"
+"id","nom","date","lieu","description","image"
+2,"Maverick","2025-07-16","Nevers","test","uploads/bfec3d545bcd5f571a6c6f2fa0b15502-c-est-pas-la-fin-du-monde-1600x900.jpg"

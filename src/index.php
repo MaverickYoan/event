@@ -3,7 +3,7 @@ require_once 'database.php';
 
 // Fetch events from the database
 try {
-    $stmt = $pdo->query("SELECT id, nom, TO_CHAR(date, 'DD/MM/YYYY') as date, lieu, description FROM evenements ORDER BY date ASC");
+    $stmt = $pdo->query("SELECT id, nom, TO_CHAR(date, 'DD/MM/YYYY') as date, lieu, description, image FROM evenements ORDER BY date ASC");
     $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     // If the table doesn't exist, create it
@@ -11,7 +11,7 @@ try {
         try {
             $pdo->exec(file_get_contents('../data/data.sql'));
             // Re-fetch events
-            $stmt = $pdo->query("SELECT id, nom, TO_CHAR(date, 'DD/MM/YYYY') as date, lieu, description FROM evenements ORDER BY date ASC");
+            $stmt = $pdo->query("SELECT id, nom, TO_CHAR(date, 'DD/MM/YYYY') as date, lieu, description, image FROM evenements ORDER BY date ASC");
             $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $init_e) {
             die("Erreur lors de la création de la table : " . $init_e->getMessage());
@@ -40,7 +40,6 @@ try {
         </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="http://localhost:8000/index.php">Index</a></li>
-            <li><a class="links" href="http://localhost:8000/add_event.php">Ajout events</a></li>
             <li><a class="links" href="http://localhost:8000/contact.php">Contact</a></li>
             <!-- <li><a class="links" href="http://localhost:8000/espace_prive.php">espace_prive</a></li> -->
             <!-- <li><a class="links" href="http://localhost:8000/source_calendrier/calendrier.php">calendrier</a></li> -->            
@@ -53,7 +52,7 @@ try {
 
         <div class="form-container">
             <h2>Ajouter un nouvel événement</h2><br>
-            <form action="add_event.php" method="post">
+                        <form action="add_event.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nom">Nom de l'événement</label>
                     <input type="text" id="nom" name="nom" required>
@@ -71,11 +70,9 @@ try {
                     <textarea id="description" name="description" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="image_path">Image</label>
-                    <input type="file" id="image_path" name="image_path" required>
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image">
                 </div>
-                <div class="form-group">
-                    <label for="image_path_url">URL</label>
                 <button type="submit" class="btn">Ajouter l'événement</button>
             </form>
         </div>
@@ -91,29 +88,14 @@ try {
                         <h3><?= htmlspecialchars($event['nom']) ?></h3>
                         <p class="date-lieu">Le <?= htmlspecialchars($event['date']) ?> à <?= htmlspecialchars($event['lieu']) ?></p>
                         <p><?= nl2br(htmlspecialchars($event['description'])) ?></p>
-                        <img src="<?= htmlspecialchars($event['image_path']) ?>" alt="<?= htmlspecialchars($event['nom']) ?>">
+                        <?php if (!empty($event['image'])): ?>
+                            <img src="<?= htmlspecialchars($event['image']) ?>" alt="Image de <?= htmlspecialchars($event['nom']) ?>" style="max-width: 200px; margin-top: 1em;">
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
     </div>
-
-    <section class="evenements-list">
-        <?php foreach ($evenements as $event): ?>
-            <div class="jeu-card">
-                <h2><?= htmlspecialchars($event['nom']) ?></h2>
-                <p><strong>date:</strong> <?= htmlspecialchars($event['date']) ?></p>
-                <p><strong>lieu:</strong> <?= htmlspecialchars($event['lieu']) ?></p>
-                <p><strong>description:</strong> <?= htmlspecialchars($event['description']) ?></p>
-                <p><strong>image_path:</strong> <?= htmlspecialchars($event['image_path']) ?></p>
-                <p><strong>image_path_url:</strong> <?= htmlspecialchars($event['image_path_url']) ?></p>
-
-                <img src="<?= htmlspecialchars($event['image_path']) ?>" alt="<?= htmlspecialchars($event['nom']) ?>">
-            </div>
-        <?php endforeach; ?>
-    </section>
-
-
 
     <!-- * script mobile menu -->
     <script src="js/script.js"></script>
