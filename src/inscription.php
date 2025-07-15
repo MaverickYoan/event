@@ -40,7 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Inscription</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body>    
+
     <div class="container">
         <h1>Inscription</h1>
         <?php if (isset($error_message)): ?>
@@ -59,8 +60,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="mot_de_passe">Mot de passe</label>
                 <input type="password" id="mot_de_passe" name="mot_de_passe" required>
             </div>
-            <button type="submit" class="btn">S'inscrire</button>
+            <button type="submit" class="btn-go">Vous serez inscrits<br><br><br><img src="uploads/ob_aea8c1_thanks.gif" width="30%" alt="retro gaming"> après le click</button>
         </form>
+        
+
     </div>
+
 </body>
 </html>
