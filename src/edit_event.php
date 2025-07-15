@@ -15,11 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lieu = $_POST['lieu'];
     $description = $_POST['description'];
     $places_disponibles = $_POST['places_disponibles'];
+    $lien = $_POST['lien'];
 
     try {
-        $sql = "UPDATE evenements SET nom = :nom, date = :date, lieu = :lieu, description = :description, places_disponibles = :places_disponibles WHERE id = :id";
+        $sql = "UPDATE evenements SET nom = :nom, date = :date, lieu = :lieu, description = :description, places_disponibles = :places_disponibles, lien = :lien WHERE id = :id";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(['nom' => $nom, 'date' => $date, 'lieu' => $lieu, 'description' => $description, 'places_disponibles' => $places_disponibles, 'id' => $id_evenement]);
+        $stmt->execute(['nom' => $nom, 'date' => $date, 'lieu' => $lieu, 'description' => $description, 'places_disponibles' => $places_disponibles, 'lien' => $lien, 'id' => $id_evenement]);
         header("Location: admin.php");
     } catch (PDOException $e) {
         $error_message = "Erreur lors de la modification de l'événement : " . $e->getMessage();
@@ -66,6 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <label for="places_disponibles">Places disponibles</label>
                 <input type="number" id="places_disponibles" name="places_disponibles" value="<?= htmlspecialchars($evenement['places_disponibles']) ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="lien">Lien</label>
+                <input type="url" id="lien" name="lien" value="<?= htmlspecialchars($evenement['lien']) ?>" required>
             </div>
             <button type="submit" class="btn">Modifier</button>
         </form>

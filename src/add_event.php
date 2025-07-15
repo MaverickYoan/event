@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lieu = $_POST['lieu'];
     $description = $_POST['description'];
     $image = '';
+    $lien = $_POST['lien'];
 
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $target_dir = "uploads/";
@@ -19,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     try {
-        $sql = "INSERT INTO evenements (nom, date, lieu, description, image) VALUES (:nom, :date, :lieu, :description, :image)";
+        $sql = "INSERT INTO evenements (nom, date, lieu, description, image, lien) VALUES (:nom, :date, :lieu, :description, :image, :lien)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(['nom' => $nom, 'date' => $date, 'lieu' => $lieu, 'description' => $description, 'image' => $image]);
+        $stmt->execute(['nom' => $nom, 'date' => $date, 'lieu' => $lieu, 'description' => $description, 'image' => $image, 'lien' => $lien  ]);
 
         header("Location: index.php");
     } catch (PDOException $e) {

@@ -64,7 +64,7 @@ if (isset($_SESSION['id_utilisateur'])) {
     </nav>
 
 
-    <div class="container">
+<div class="container">
         <div class="event-detail">
             <h1><?= htmlspecialchars($evenement['nom']) ?></h1>
             <?php if (!empty($evenement['image'])): ?>
@@ -75,6 +75,7 @@ if (isset($_SESSION['id_utilisateur'])) {
             <p><strong>Description :</strong></p>
             <p><?= nl2br(htmlspecialchars($evenement['description'])) ?></p>
             <p><strong>Places disponibles :</strong> <?= htmlspecialchars($evenement['places_disponibles']) ?></p>
+            <p><strong>Lien :</strong> <?= htmlspecialchars($evenement['lien']) ?></p>
 
             <?php if (isset($_SESSION['id_utilisateur'])): ?>
                 <?php if ($est_inscrit): ?>
@@ -86,8 +87,9 @@ if (isset($_SESSION['id_utilisateur'])) {
                 <p>Vous devez être connecté pour vous inscrire à cet événement.</p>
             <?php endif; ?>
         </div>
-    </div>
-    <script src="js/script.js"></script>
+</div>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>

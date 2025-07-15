@@ -49,12 +49,12 @@ $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <table>
                 <thead>
                     <tr>
-                        <th>Nom</th>
-                        <th>Date</th>
-                        <th>Lieu</th>
-                        <th>Places disponibles</th>
-                        <th>Inscrits</th>
-                        <th>Actions</th>
+                        <th>Nom</th><br>
+                        <th>Date</th><br>
+                        <th>Lieu</th><br>
+                        <th>Places disponibles</th><br>
+                        <th>Inscrits</th><br>
+                        <th>Actions</th><br>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,7 +62,6 @@ $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <tr>
                             <td><?= htmlspecialchars($event['nom']) ?></td>
                             <td><?= htmlspecialchars($event['date']) ?></td>
-                            <td><?= htmlspecialchars($event['lieu']) ?></td>
                             <td><?= htmlspecialchars($event['places_disponibles']) ?></td>
                             <td><a href="inscrits.php?id=<?= $event['id'] ?>"><?= $event['nb_inscrits'] ?></a></td>
                             <td>
