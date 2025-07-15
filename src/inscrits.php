@@ -31,7 +31,7 @@ $inscrits = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container-inscrits">
         <h1>Inscrits à "<?= htmlspecialchars($nom_evenement) ?>"</h1>
         <a href="admin.php">Retour à l'administration</a>
         <table>
@@ -39,12 +39,12 @@ $inscrits = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <th>Pseudo</th>
                     <th>Email</th>
-                </tr>
+                </tr><br>
             </thead>
             <tbody>
                 <?php foreach ($inscrits as $inscrit): ?>
                     <tr>
-                        <td><?= htmlspecialchars($inscrit['pseudo']) ?></td>
+                        <td><?= htmlspecialchars($inscrit['pseudo']) ?></td><br>
                         <td><?= htmlspecialchars($inscrit['email']) ?></td>
                     </tr>
                 <?php endforeach; ?>

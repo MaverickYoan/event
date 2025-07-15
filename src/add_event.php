@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $sql = "INSERT INTO evenements (nom, date, lieu, description, image, lien) VALUES (:nom, :date, :lieu, :description, :image, :lien)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(['nom' => $nom, 'date' => $date, 'lieu' => $lieu, 'description' => $description, 'image' => $image, 'lien' => $lien  ]);
+        $stmt->execute(['nom' => $nom, 'date' => $date, 'lieu' => $lieu, 'description' => $description, 'image' => $image, 'lien' => $lien]);
 
         header("Location: index.php");
     } catch (PDOException $e) {
