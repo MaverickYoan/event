@@ -1,5 +1,6 @@
 <?php
 require_once 'database.php';
+session_start();
 
 // Create contact table if it doesn't exist
 try {

@@ -38,10 +38,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créer un nouvel événement</title>
+    <title>Créer nouvel événement</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<nav class="navbar">
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.php">Accueil</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <?php if (isset($_SESSION['id_utilisateur'])): ?>
+                <li><a href="deconnexion.php">Déconnexion</a></li>
+                <?php if ($_SESSION['role'] == 'admin'): ?>
+                    <li><a href="admin.php">Administration</a></li>
+                <?php endif; ?>
+            <?php else: ?>
+                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
     <div class="container">
         <h1>Créer un nouvel événement</h1>
         <form action="" method="post" enctype="multipart/form-data">
@@ -79,5 +99,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="btn">Créer</button>
         </form>
     </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
