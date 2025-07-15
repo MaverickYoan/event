@@ -6,7 +6,7 @@ CREATE TABLE contact (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO contact (nom, email, message) VALUES 
-('John Doe', 'john.doe@example.com', 'Hello, message test000'),
-('admin', 'admin@admin.com', 'Hello, message test001'),
-('Maverick', 'yoanmaverick@gmail.com', 'Hello, message test002');
+CREATE INDEX idx_contact_email ON contact(email);
+CREATE INDEX idx_contact_created_at ON contact(created_at);
+CREATE UNIQUE INDEX idx_contact_email_unique ON contact(email);
+CREATE INDEX idx_contact_nom ON contact(nom);

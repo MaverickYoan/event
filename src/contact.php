@@ -6,7 +6,7 @@ session_start();
 try {
     $pdo->query("SELECT 1 FROM contact LIMIT 1");
 } catch (PDOException $e) {
-    if ($e->getCode() === '42P01') {
+    if (strpos($e->getMessage(), 'Base table or view not found') !== false) {
         try {
             $pdo->exec(file_get_contents('../data/contact.sql'));
         } catch (PDOException $init_e) {
@@ -35,15 +35,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style-contact.css">
     <title>Contact</title>
     <style>
-       
+
     </style>
 </head>
+
 <body id="content">
     <!-- Navbar section ------------->
     <nav class="navbar">
@@ -66,36 +68,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endif; ?>
         </ul>
     </nav>
-    
+
     <div class="animated-bg"></div>
     <div class="container">
         <div class="contact-form">
-            <h1>Contactez-nous</h1>
+            <h1>Contactez-moi</h1>
             <?php if (!empty($success_message)): ?>
                 <p class="success-message"><?= $success_message ?></p>
             <?php endif; ?>
             <?php if (!empty($error_message)): ?>
                 <p class="error-message"><?= $error_message ?></p>
             <?php endif; ?>
-            <form action="contact.php" method="post">
+
+            <form action="contact.php" method="post" autocomplete="off">
                 <div class="form-group">
                     <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                    <input type="text" id="nom" name="nom" placeholder="Votre nom"
+                        value="<?= isset($_POST['nom']) ? htmlspecialchars($_POST['nom']) : '' ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Votre email" required>
+                    <input type="email" id="email" name="email" placeholder="Votre email"
+                        value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+                    <textarea id="message" name="message" rows="5" placeholder="Votre message"
+                        required><?= isset($_POST['message']) ? htmlspecialchars($_POST['message']) : '' ?></textarea>
                 </div>
                 <button type="submit" class="btn">Envoyer</button>
             </form>
         </div>
     </div>
-    
+
     <!-- * script mobile menu -->
     <script src="js/script.js"></script>
 </body>
+
 </html>

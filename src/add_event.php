@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        
+
         // Déplacer le fichier uploadé
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             $image = $target_file;
@@ -36,14 +36,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créer nouvel événement</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<nav class="navbar">
+    <nav class="navbar">
         <div class="hamburger-menu" id="hamburgerMenu">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -66,16 +68,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h1>Créer un nouvel événement</h1>
         <form action="" method="post" enctype="multipart/form-data">
-        <?php if (isset($error_message)): ?>
-            <p class="error-message"><?= $error_message ?></p>
-        <?php endif; ?>
+            <?php if (isset($error_message)): ?>
+                <p class="error-message"><?= $error_message ?></p>
+            <?php endif; ?>
             <div class="form-group">
                 <label for="nom">Nom</label>
                 <input type="text" id="nom" name="nom" value="<?= htmlspecialchars($evenement['nom']) ?>" required>
             </div>
             <div class="form-group">
                 <label for="date">Date</label>
-                <input type="datetime-local" id="date" name="date" value="<?= date('Y-m-d\TH:i', strtotime($evenement['date'])) ?>" required>
+                <input type="datetime-local" id="date" name="date"
+                    value="<?= date('Y-m-d\TH:i', strtotime($evenement['date'])) ?>" required>
             </div>
             <div class="form-group">
                 <label for="lieu">Lieu</label>
@@ -83,23 +86,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" rows="5" required><?= htmlspecialchars($evenement['description']) ?></textarea>
+                <textarea id="description" name="description" rows="5"
+                    required><?= htmlspecialchars($evenement['description']) ?></textarea>
             </div>
             <div class="form-group">
                 <label for="places_disponibles">Places disponibles</label>
-                <input type="number" id="places_disponibles" name="places_disponibles" value="<?= htmlspecialchars($evenement['places_disponibles']) ?>" required>
+                <input type="number" id="places_disponibles" name="places_disponibles"
+                    value="<?= htmlspecialchars($evenement['places_disponibles']) ?>" required>
             </div>
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" id="image" name="image" required>
-                </div>
-            <div class="form-group">
-                <label for="lien">Lien</label>
-                <input type="url" id="lien" name="lien" value="<?= htmlspecialchars($evenement['lien']) ?>" required>
             </div>
+
             <button type="submit" class="btn">Créer</button>
         </form>
     </div>
     <script src="js/script.js"></script>
 </body>
+
 </html>

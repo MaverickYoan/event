@@ -1,0 +1,1 @@
+C:\Users\tek2o\AppData\Roaming\postgresql\pgpass.conf

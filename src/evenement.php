@@ -32,17 +32,19 @@ if (isset($_SESSION['id_utilisateur'])) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($evenement['nom']) ?></title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header>
         <div></div>
     </header>
-<nav class="navbar">
+    <nav class="navbar">
         <div class="hamburger-menu" id="hamburgerMenu">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -64,21 +66,21 @@ if (isset($_SESSION['id_utilisateur'])) {
     </nav>
 
 
-<div class="container">
+    <div class="container">
         <div class="event-detail">
             <h1><?= htmlspecialchars($evenement['nom']) ?></h1>
             <?php if (!empty($evenement['image'])): ?>
-                <img src="<?= htmlspecialchars($evenement['image']) ?>" alt="Image de <?= htmlspecialchars($evenement['nom']) ?>" style="max-width: 100%; margin-bottom: 1em;">
+                <img src="<?= htmlspecialchars($evenement['image']) ?>"
+                    alt="Image de <?= htmlspecialchars($evenement['nom']) ?>" style="max-width: 100%; margin-bottom: 1em;">
             <?php endif; ?>
             <p><strong>Date et heure :</strong> <?= htmlspecialchars($evenement['date_heure']) ?></p>
             <p><strong>Lieu :</strong> <?= htmlspecialchars($evenement['lieu']) ?></p>
             <p><strong>Description :</strong></p>
             <p><?= nl2br(htmlspecialchars($evenement['description'])) ?></p>
             <p><strong>Places disponibles :</strong> <?= htmlspecialchars($evenement['places_disponibles']) ?></p>
-            <p><strong>Lien :</strong> <?= htmlspecialchars($evenement['lien']) ?></p>
 
             <?php if (isset($_SESSION['id_utilisateur'])): ?>
-                <?php if ($est_inscrit): ?>
+                <?php if ($est_inscrit): ?><br><br>
                     <a href="desinscription.php?id=<?= $id_evenement ?>" class="btn">Se désinscrire</a>
                 <?php else: ?><br><br>
                     <a href="inscription_evenement.php?id=<?= $id_evenement ?>" class="btn">S'inscrire</a>
@@ -87,9 +89,10 @@ if (isset($_SESSION['id_utilisateur'])) {
                 <p>Vous devez être connecté pour vous inscrire à cet événement.</p>
             <?php endif; ?>
         </div>
-</div>
+    </div>
 
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
+
 </html>

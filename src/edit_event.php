@@ -15,12 +15,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lieu = $_POST['lieu'];
     $description = $_POST['description'];
     $places_disponibles = $_POST['places_disponibles'];
-    $lien = $_POST['lien'];
+    // $lien = $_POST['lien'];
 
     try {
-        $sql = "UPDATE evenements SET nom = :nom, date = :date, lieu = :lieu, description = :description, places_disponibles = :places_disponibles, lien = :lien WHERE id = :id";
+        // $sql = "UPDATE evenements SET nom = :nom, date = :date, lieu = :lieu, description = :description, places_disponibles = :places_disponibles, lien = :lien WHERE id = :id";
+        $sql = "UPDATE evenements SET nom = :nom, date = :date, lieu = :lieu, description = :description, places_disponibles = :places_disponibles WHERE id = :id";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(['nom' => $nom, 'date' => $date, 'lieu' => $lieu, 'description' => $description, 'places_disponibles' => $places_disponibles, 'lien' => $lien, 'id' => $id_evenement]);
+        // $stmt->execute(['nom' => $nom, 'date' => $date, 'lieu' => $lieu, 'description' => $description, 'places_disponibles' => $places_disponibles, 'lien' => $lien, 'id' => $id_evenement]);
+        $stmt->execute(['nom' => $nom, 'date' => $date, 'lieu' => $lieu, 'description' => $description, 'places_disponibles' => $places_disponibles, 'id' => $id_evenement]);
         header("Location: admin.php");
     } catch (PDOException $e) {
         $error_message = "Erreur lors de la modification de l'événement : " . $e->getMessage();
@@ -35,12 +37,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifier un événement</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Modifier un événement</h1>
@@ -54,7 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label for="date">Date</label>
-                <input type="datetime-local" id="date" name="date" value="<?= date('Y-m-d\TH:i', strtotime($evenement['date'])) ?>" required>
+                <input type="datetime-local" id="date" name="date"
+                    value="<?= date('Y-m-d\TH:i', strtotime($evenement['date'])) ?>" required>
             </div>
             <div class="form-group">
                 <label for="lieu">Lieu</label>
@@ -62,18 +67,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" rows="5" required><?= htmlspecialchars($evenement['description']) ?></textarea>
+                <textarea id="description" name="description" rows="5"
+                    required><?= htmlspecialchars($evenement['description']) ?></textarea>
             </div>
             <div class="form-group">
                 <label for="places_disponibles">Places disponibles</label>
-                <input type="number" id="places_disponibles" name="places_disponibles" value="<?= htmlspecialchars($evenement['places_disponibles']) ?>" required>
-            </div>
-            <div class="form-group">
-                <label for="lien">Lien</label>
-                <input type="url" id="lien" name="lien" value="<?= htmlspecialchars($evenement['lien']) ?>" required>
+                <input type="number" id="places_disponibles" name="places_disponibles"
+                    value="<?= htmlspecialchars($evenement['places_disponibles']) ?>" required>
             </div>
             <button type="submit" class="btn">Modifier</button>
         </form>
     </div>
 </body>
+
 </html>

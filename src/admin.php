@@ -15,14 +15,16 @@ $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administration</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-<nav class="navbar">
+    <nav class="navbar">
         <div class="hamburger-menu" id="hamburgerMenu">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -37,12 +39,13 @@ $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </nav>
     <header>
 
-    
+
     </header>
     <div class="container-adm">
         <h1>Administration des événements</h1>
+        <br><br> <a href="add_event.php" class="btn">Créer un nouvel événement</a>
 
-        <a href="add_event.php" class="btn">Créer un nouvel événement</a>
+        <br><br>
 
         <div id="admin-event-list">
             <h2>Liste des événements</h2>
@@ -66,7 +69,8 @@ $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><a href="inscrits.php?id=<?= $event['id'] ?>"><?= $event['nb_inscrits'] ?></a></td>
                             <td>
                                 <a href="edit_event.php?id=<?= $event['id'] ?>">Modifier</a>
-                                <a href="delete_event.php?id=<?= $event['id'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">Supprimer</a>
+                                <a href="delete_event.php?id=<?= $event['id'] ?>"
+                                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -76,4 +80,5 @@ $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <script src="js/script.js"></script>
 </body>
+
 </html>

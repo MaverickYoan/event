@@ -1,14 +1,3 @@
 {
-	"Servers": {
-		"1": {
-			"Name": "PostgreSQL Docker",
-			"Group": "Servers",
-			"Host": "db",
-			"Port": 5432,
-			"MaintenanceDB": "project_event",
-			"Username": "admin",
-			"Password": "admin",
-			"SSLMode": "prefer"
-		}
-	}
+	 
 }

@@ -6,5 +6,5 @@ CREATE TABLE evenements (
     description TEXT,
     image VARCHAR(255),
     places_disponibles INT,
-    lien VARCHAR(255)
+    -- lien VARCHAR(255)
 );
