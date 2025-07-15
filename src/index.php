@@ -1,5 +1,6 @@
 <?php
 require_once 'database.php';
+session_start();
 
 // Fetch events from the database
 try {
@@ -26,78 +27,48 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>event</title>
+    <title>Accueil</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body id="content">
-    <!-- Navbar section ------------->
-
+<body>
     <nav class="navbar">
-        <div class="hamburger-menu" id="hamburgerMenu">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="http://localhost:8000/index.php">Index</a></li>
-            <li><a class="links" href="http://localhost:8000/contact.php">Contact</a></li>
-            <!-- <li><a class="links" href="http://localhost:8000/espace_prive.php">espace_prive</a></li> -->
-            <!-- <li><a class="links" href="http://localhost:8000/source_calendrier/calendrier.php">calendrier</a></li> -->            
-             <!-- <li><a class="links" href="http://localhost:8000/add.php">Ajout User</a></li> -->
+        <ul class="nav-links">
+            <li><a href="index.php">Accueil</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <?php if (isset($_SESSION['id_utilisateur'])): ?>
+                <li><a href="deconnexion.php">Déconnexion</a></li>
+                <?php if ($_SESSION['role'] == 'admin'): ?>
+                    <li><a href="admin.php">Administration</a></li>
+                <?php endif; ?>
+            <?php else: ?>
+                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
+            <?php endif; ?>
         </ul>
     </nav>
-    
+
     <div class="container">
-        <h1>event</h1>
-
-        <div class="form-container">
-            <h2>Ajouter un nouvel événement</h2><br>
-                        <form action="add_event.php" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="nom">Nom de l'événement</label>
-                    <input type="text" id="nom" name="nom" required>
-                </div>
-                <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="lieu">Lieu</label>
-                    <input type="text" id="lieu" name="lieu" required>
-                </div>
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea id="description" name="description" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="image">Image</label>
-                    <input type="file" id="image" name="image">
-                </div>
-                <button type="submit" class="btn">Ajouter l'événement</button>
-            </form>
-        </div>
-
+        <h1>Événements à venir</h1>
         <div id="event-list">
-            <h2>Événements à venir</h2>
             <?php if (empty($evenements)): ?>
                 <p>Aucun événement à venir pour le moment.</p>
             <?php else: ?>
                 <?php foreach ($evenements as $event): ?>
                     <div class="event">
-                        <a href="delete_event.php?id=<?= $event['id'] ?>" class="btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">Supprimer</a>
                         <h3><?= htmlspecialchars($event['nom']) ?></h3>
                         <p class="date-lieu">Le <?= htmlspecialchars($event['date']) ?> à <?= htmlspecialchars($event['lieu']) ?></p>
                         <p><?= nl2br(htmlspecialchars($event['description'])) ?></p>
                         <?php if (!empty($event['image'])): ?>
                             <img src="<?= htmlspecialchars($event['image']) ?>" alt="Image de <?= htmlspecialchars($event['nom']) ?>" style="max-width: 200px; margin-top: 1em;">
                         <?php endif; ?>
+                        <a href="evenement.php?id=<?= $event['id'] ?>" class="btn">Voir l'événement</a>
+                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+                            <a href="delete_event.php?id=<?= $event['id'] ?>" class="btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">Supprimer</a>
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
     </div>
-
-    <!-- * script mobile menu -->
-    <script src="js/script.js"></script>
 </body>
 </html>

@@ -37,71 +37,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style-contact.css">
     <title>Contact</title>
     <style>
-        body { margin: 0; font-family: sans-serif; overflow: hidden; }
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(45deg,rgb(61, 236, 13),rgb(27, 187, 40),rgb(21, 142, 31),rgb(1, 38, 2));
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-        }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2em;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 400px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
-        h1 { color: white; text-align: center; }
-        .form-group { margin-bottom: 1.5em; }
-        .form-group label { display: block; color: white; margin-bottom: .5em; }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: .8em;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            box-sizing: border-box;
-        }
-        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(102, 118, 104, 0.7); }
-        .btn { 
-            width: 100%; 
-            padding: 1em; 
-            background-color: #fff; 
-            color:rgb(7, 87, 4); 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1em; 
-            transition: background-color 0.3s;
-        }
-        .btn:hover { background-color: #f0f0f0; }
-        .success-message { color:rgb(69, 225, 17); text-align: center; margin-top: 1em; }
-        .error-message { color:rgb(190, 135, 15); text-align: center; margin-top: 1em; }
+       
     </style>
 </head>
-<body>
+<body id="content">
+    <!-- Navbar section ------------->
+
+    <nav class="navbar">
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="http://localhost:8003/index.php">Index</a></li>
+            <li><a class="links" href="http://localhost:8003/contact.php">Contact</a></li>
+            <!-- <li><a class="links" href="http://localhost:8000/espace_prive.php">espace_prive</a></li> -->
+            <!-- <li><a class="links" href="http://localhost:8000/source_calendrier/calendrier.php">calendrier</a></li> -->            
+             <!-- <li><a class="links" href="http://localhost:8000/add.php">Ajout User</a></li> -->
+        </ul>
+    </nav>
+    
     <div class="animated-bg"></div>
     <div class="container">
         <div class="contact-form">
@@ -129,5 +88,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     </div>
+    
+    <!-- * script mobile menu -->
+    <script src="js/script.js"></script>
 </body>
 </html>
