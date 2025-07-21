@@ -40,15 +40,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../data/favicon.ico">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Contact</title>
     <style>
-        body {
-            width: 100%;
-            height: 100vh;
+    .animated-bg,
+    .contact-form {
+        /* position: fixed; */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgb(13, 191, 236), rgba(131, 187, 27, 1), rgb(21, 142, 31), rgba(137, 8, 189, 1));
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+        0% {
+            background-position: 0% 50%;
         }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
     </style>
 </head>
+
+<header>
+
+</header>
 
 <body>
     <nav class="navbar">
@@ -62,28 +87,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li><a href="http://localhost:8003/voir.php">Voir Dans la région</a></li>
             <li><a href="http://localhost:8003/contact.php">Contact</a></li>
             <?php if (isset($_SESSION['id_utilisateur'])): ?>
-                <li><a href="deconnexion.php">Déconnexion</a></li>
-                <?php if ($_SESSION['role'] == 'admin'): ?>
-                    <li><a href="admin.php">Administration</a></li>
-                <?php endif; ?>
+            <li><a href="deconnexion.php">Déconnexion</a></li>
+            <?php if ($_SESSION['role'] == 'admin'): ?>
+            <li><a href="admin.php">Administration</a></li>
+            <?php endif; ?>
             <?php else: ?>
-                <li><a href="inscription.php">Inscription</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
+            <li><a href="inscription.php">Inscription</a></li>
+            <li><a href="connexion.php">Connexion</a></li>
             <?php endif; ?>
         </ul>
     </nav>
 
-    <div class="animated-bg"></div>
+    <!-- <div class="animated-bg"></div> -->
 
     <section>
         <div class="container">
             <div class="contact-form">
                 <h1>Contactez-nous</h1>
                 <?php if (!empty($success_message)): ?>
-                    <p class="success-message"><?= $success_message ?></p>
+                <p class="success-message"><?= $success_message ?></p>
                 <?php endif; ?>
                 <?php if (!empty($error_message)): ?>
-                    <p class="error-message"><?= $error_message ?></p>
+                <p class="error-message"><?= $error_message ?></p>
                 <?php endif; ?>
                 <form action="contact.php" method="post">
                     <div class="form-group">
@@ -104,9 +129,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </section>
 
-
-    <a href="/">Back to home</a>
-
     <!-- * Section - Footer -->
     <footer> <br>
 
@@ -120,10 +142,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </footer>
     <script>
-        document.getElementById('hamburgerMenu').addEventListener('click', function() {
-            this.classList.toggle('active');
-            document.getElementById('navLinks').classList.toggle('active');
-        });
+    document.getElementById('hamburgerMenu').addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.getElementById('navLinks').classList.toggle('active');
+    });
     </script>
 </body>
 

@@ -4,7 +4,7 @@ body {
 
 h1, h2, table { 
     text-align: left;
-     color: #333;
+    color: #333;
 }
 
 .container, .container-adm, .container-inscrits, table { max-width: 800px; margin: 0 auto; background-color: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); 

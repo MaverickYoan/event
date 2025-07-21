@@ -38,7 +38,6 @@ body {
 }
 
 .contact-form {
-    background: rgba(255, 255, 255, 0.1);
     padding: 2em;
     border-radius: 10px;
     backdrop-filter: blur(10px);
