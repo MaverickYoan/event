@@ -509,6 +509,16 @@ body {
     animation-timeline: scroll();
 }
 
+/* Fallback for browsers that do not support animation-timeline */
+@supports not (animation-timeline: scroll()) {
+    .back-to-top {
+        /* Provide a static style or alternative animation */
+        background: var(--green);
+        /* Optionally, remove animation or use a simple fade-in */
+        animation: fadein 1s linear;
+    }
+}
+
 /* rotation de la flÃ¨che  */
 .back-to-top svg {
     transform: rotate(var(--angle));

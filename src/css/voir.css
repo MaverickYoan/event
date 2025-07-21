@@ -110,7 +110,7 @@ a {
 /* flèche retour en haut */ 
 .back-to-top { 
     /* Style de base */ 
-    background-color: oklch(100% 0 0); 
+    background-color: var(--green); 
     border: 2px solid currentColor; 
     border-radius: 0.5rem; 
     display: inline-block; 

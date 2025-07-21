@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <br>
         <br>
         <br>
-        xxxxxxxxxxxxxxxxxxx
+
         <br>
         <br>
         <br>
