@@ -34,50 +34,51 @@ body {
 
 .nav-links { 
     list-style: none; 
-    affichage : flex ; 
-    marge : 0 ; 
-    remplissage : 0 ; 
+    display: flex ; 
+    margin: 0 ; 
+    padding: 0 ; 
 } 
 
 .nav-links li { 
-    marge gauche : 20 px ; 
+    margin-left: 20px ; 
 } 
 
 .nav-links a { 
-    couleur : rgb(29, 255, 9) ; 
-    décoration de texte : aucune ; 
-    remplissage : 5 px 10 px ; 
+    color: rgb(29, 255, 9); 
+    text-decoration: none; 
+    padding: 5px 10px; 
 } 
 
 .hamburger-menu { 
-    affichage : aucun ; 
-    direction flexible : colonne ; 
-    curseur : pointeur ; 
+    display: none; 
+    flex-direction: column; 
+    cursor: pointer; 
 } 
 
 .hamburger-menu .bar { 
-    largeur : 25 px ; 
-    hauteur : 3 px ; 
-    couleur d’arrière-plan : blanc ; 
-    marge : 4 px 0 ; 
-    transition : 0,4 s ; 
+    width: 25px; 
+    height: 3px; 
+    background-color: white; 
+    margin: 4px 0; 
+    transition: 0.4s; 
 } 
 
 a { 
-    couleur : vert ; 
-    épaisseur de police : plus gras ; 
+    color: green; 
+    font-weight: bold; 
 } 
-@media (largeur maximale : 768 px) { 
+
+@media (max-width: 768px) { 
     .nav-links { 
-        affichage : aucun ; 
-        direction flexible : colonne ; 
-        largeur : 100 % ; 
-        droite : 0 ; 
+        display: none; 
+        flex-direction: column; 
+        width: 100%; 
+        right: 0; 
 
     } 
 
     .nav-links li { 
-        marge : 10 px 0 ; 
+        margin: 10px 0; 
         text-align: center; 
     } 
 
@@ -91,16 +92,16 @@ a {
 
     .hamburger-menu.active .bar:nth-child(1) { 
         /* transformation: rotation(45deg) translation(5px, 5px); */ 
-        transformation: translationY(0px) rotation(-135deg); 
+        transform: translationY(0px) rotation(-135deg); 
     } 
 
     .hamburger-menu.active .bar:nth-child(2) { 
-        opacité: 0; 
+        opacity: 0; 
     } 
 
     .hamburger-menu.active .bar:nth-child(3) { 
         /* transformation: rotation(-45deg) translation(5px, -5px); */ 
-        transformation: translationY(0px) rotation(135deg); 
+        transform: translationY(0px) rotation(135deg); 
     }
 } 
 
@@ -146,16 +147,16 @@ a {
         --progress: 0%; 
     } 
 
-    100 % { 
-        --progrès : 100 % ; 
+    100% { 
+        --progress: 100%; 
     } 
 } 
 
 /* animation de la flèche */ 
 .back-to-top { 
     --green: oklch(85.33% 0.15 141.46); 
-    animation : progression linéaire ; 
-    chronologie d'animation : scroll(); 
+    animation: progress linear; 
+    animation-timeline: scroll(); 
 } 
 
 /* rotation de la flèche */ 
@@ -166,48 +167,48 @@ a {
 /* propriétaire de la progression de la flèche */ 
 @property --progress { 
     syntax: '<percentage>'; 
-    hérite : faux ; 
-    valeur initiale : 0 % ; 
+    inherits: false; 
+    initial-value: 0%; 
 } 
 
 @property --angle { 
-    syntaxe : '<angle>'; 
-    hérite de : vrai ; 
-    valeur initiale : -90 degrés ; 
+    syntax: '<angle>'; 
+    inherits: true; 
+    initial-value: -90deg; 
 } 
 
-@keyframes progression { 
-    0 % { 
-        --progress : 0 % ; 
-        --angle : 90 degrés ; 
+@keyframes progress {
+    0% {
+        --progress: 0%;
+        --angle: 90deg;
+    }
+
+    2% { 
+        --angle: 90deg; 
+
     } 
 
-    2 % { 
-        --angle : 90 degrés ; 
-
-    } 
-
-    100 % { 
-        --progress : 100 % ; 
-    } 
-} 
-
-@supports not (animation-timeline : scroll) { 
-    .back-to-top { 
-        background : var(--green); 
+    100% { 
+        --progress: 100%; 
     } 
 } 
 
-@media(prefers-reduced-motion : no-preference) { 
-    html { 
-        scroll-behavior : smooth ; 
-    } 
-} 
+@supports not (animation-timeline: scroll) {
+    .back-to-top {
+        background: var(--green);
+    }
+}
 
-#forma, .droits, .logo-oblineformationpro{ 
-    display : flex ;
-    justify-content: center; 
-    align-items: center; 
+@media(prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+#forma, .droits, .logo-oblineformationpro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 } 
 
 /* * animation oiseau */ 
@@ -220,8 +221,8 @@ a {
 
 .sky { 
     position: absolute; 
-    top: 10%; 
-    right: -20px; 
+    top: 300px; 
+    right: -50px; 
     animation: sky 30s linear 0s infinite reverse; 
     z-index: 99; 
 } 
@@ -230,16 +231,14 @@ a {
     width: 100px; 
 } 
 
-/* trajectoire de l'oiseau */ 
+/* trajectoire de l'oiseau - utilise transform au lieu de top/right pour de meilleures performances */ 
 @keyframes sky { 
     from { 
-        top: 300px; 
-        right: -50px; 
+        transform: translateY(0) translateX(0); 
     } 
 
     to { 
-        top: 300px; 
-        right: 130%; 
+        transform: translateY(0) translateX(130vw); 
     } 
 } 
 
@@ -259,23 +258,23 @@ h1, h2, p {
 } 
 
 @keyframes fadein { 
-    de { 
-        opacité: 0; 
+    from { 
+        Composite: 0; 
     } 
 
-    à { 
-        opacité: 1; 
+    to { 
+        Composite: 1; 
     } 
 } 
 
 @-webkit-keyframes fadein { 
 
     /* sur Safari et Chrome */ 
-    de { 
-        opacité: 0; 
+    from { 
+        opacity: 0; 
     } 
 
-    à { 
-        opacité: 1; 
+    to { 
+        opacity: 1; 
     } 
 }

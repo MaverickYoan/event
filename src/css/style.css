@@ -142,7 +142,8 @@ header {
     justify-content: space-between;
     align-items: center;
     /* background-color: black; */
-    background-color: transparent;    padding: 10px 20px;
+    background-color: transparent;
+    padding: 10px 20px;
 }
 
 
@@ -434,7 +435,7 @@ body {
 }
 
 .quick-btn {
-    background: linear-gradient(45deg, #2d5016, #1a1a1a, #0f3f0f);
+    background: linear-gradient(45deg, #d3d6d0, #4e4848, #209420);
     color: rgb(2, 30, 2);
     padding: 12px 24px;
     border-radius: 25px;
@@ -447,7 +448,7 @@ body {
 .quick-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(45, 80, 22, 0.4);
-    background: linear-gradient(45deg, #3a6b1e, #2d2d2d, #247924);
+    background: linear-gradient(45deg, #8f918e, #fcf7f7, #247924);
 }
 
 .filtered-results {

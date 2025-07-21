@@ -19,34 +19,31 @@ if (isset($_SESSION['id_utilisateur'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($evenement['nom']) ?></title>
+    <title>Quelques évènements</title>
     <link rel="stylesheet" href="css/voir1.css">
-    <link rel="stylesheet" href="css/voir.css">
+    <!-- <link rel="stylesheet" href="css/voir.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
+<!-- Arrière-plan animé -->
+<div class="animated-bg"></div>
+<div class="camo-overlay"></div>
+<div class="neon-grid"></div>
 
+<!-- Effets lumineux -->
+<div class="laser-lines">
+    <div class="laser"></div>
+    <div class="laser"></div>
+    <div class="laser"></div>
+</div>
 
-    </header>
-    </section>
+<!-- Pluie digitale -->
+<div class="digital-rain" id="digital-rain"></div>
 
-    <!-- Arrière-plan animé -->
-    <div class="animated-bg"></div>
-    <div class="camo-overlay"></div>
-    <div class="neon-grid"></div>
+<!-- Formes flottantes -->
+<div class="floating-shapes" id="floating-shapes"></div>
 
-    <!-- Effets lumineux -->
-    <div class="laser-lines">
-        <div class="laser"></div>
-        <div class="laser"></div>
-        <div class="laser"></div>
-    </div>
-
-    <!-- Pluie digitale -->
-    <div class="digital-rain" id="digital-rain"></div>
-
-    <!-- Formes flottantes -->
-    <div class="floating-shapes" id="floating-shapes"></div>
-
-    <!-- * Section - Body -->
+<!-- Section - Body -->
 
 <body id="content"
     style="background-image: url(img/b3b48a35785465ed53f20d332f191a5c.gif); alt:'gif d'ajout d'un jeu vidéo';">
@@ -75,14 +72,18 @@ if (isset($_SESSION['id_utilisateur'])) {
 
     <div class="container">
         <div class="quick-links">
-            <h1>Check un peu</h1>
-            <a href="https://www.nevers.fr/vivre-a-nevers" target="_blank">Vivre à Nevers</a><br>
-            <a href="https://www.nevers.fr/vivre-a-nevers">Vivre à Nevers</a><br>
-            <a href="https://www.nevers.fr/vivre-a-nevers">Vivre à Nevers</a><br>
-            <a href="https://www.nevers.fr/vivre-a-nevers">Vivre à Nevers</a><br>
-            <a href="https://www.nevers.fr/vivre-a-nevers">Vivre à Nevers</a><br>
-            <a href="https://www.nevers.fr/vivre-a-nevers">Vivre à Nevers</a><br>
+            <img src="uploads/comparaison-animation-gif-transparent.gif" alt="">
 
+        </div>
+    </div>
+
+    <div id="quick" class="quick-links">
+        <h3>Quelques évènements dans l'coin</h3>
+        <div class="quick-buttons">
+            <a href="https://www.nevers.fr/vivre-a-nevers" target="_blank" class="quick-btn">Vivre à Nevers</a>
+            <a href="https://www.koikispass.com/lagenda/16422/visite-guidee-tour-de-place-place-carnot-autres-idees-de-sorties/"
+                target="_blank" class="quick-btn">Visite guidée Tour de Place</a>
+            <a href="https://www.nevers.fr/" target="_blank" class="quick-btn">Nevers</a>
         </div>
     </div>
     <br>

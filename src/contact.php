@@ -72,6 +72,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <header>
+    <div class="header">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        xxxxxxxxxxxxxxxxxxx
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
 
 </header>
 
@@ -100,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- <div class="animated-bg"></div> -->
 
-    <section>
+    <section class="contact-section">
         <div class="container">
             <div class="contact-form">
                 <h1>Contactez-nous</h1>
