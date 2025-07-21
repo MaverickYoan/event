@@ -43,6 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/contact.css">
     <title>Contact</title>
     <style>
+        body {
+            width: 100%;
+            height: 100vh;
+        }
     </style>
 </head>
 
@@ -70,32 +74,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
 
     <div class="animated-bg"></div>
-    <div class="container">
-        <div class="contact-form">
-            <h1>Contactez-nous</h1>
-            <?php if (!empty($success_message)): ?>
-                <p class="success-message"><?= $success_message ?></p>
-            <?php endif; ?>
-            <?php if (!empty($error_message)): ?>
-                <p class="error-message"><?= $error_message ?></p>
-            <?php endif; ?>
-            <form action="contact.php" method="post">
-                <div class="form-group">
-                    <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Votre email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
-                </div>
-                <button type="submit" class="btn">Envoyer</button>
-            </form>
+
+    <section>
+        <div class="container">
+            <div class="contact-form">
+                <h1>Contactez-nous</h1>
+                <?php if (!empty($success_message)): ?>
+                    <p class="success-message"><?= $success_message ?></p>
+                <?php endif; ?>
+                <?php if (!empty($error_message)): ?>
+                    <p class="error-message"><?= $error_message ?></p>
+                <?php endif; ?>
+                <form action="contact.php" method="post">
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Envoyer</button>
+                </form>
+            </div>
         </div>
-    </div>
+    </section>
+
+
+    <a href="/">Back to home</a>
+
+    <!-- * Section - Footer -->
+    <footer> <br>
+
+        <!-- Droits Section : Informations sur les droits réservés et le créateur -->
+
+        <div class="droits">
+            <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                alt="Logo Onlineformationpro" width="100px" id="forma" class="logo-oblineformationpro">
+            <h6 style="display: flex; justify-content:center;">&copy; 2025 Projet_event | <a
+                    href=https://www.onlineformapro.com/ target=_blank> @onlineformapro</a></h6>
+        </div>
+    </footer>
     <script>
         document.getElementById('hamburgerMenu').addEventListener('click', function() {
             this.classList.toggle('active');

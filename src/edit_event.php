@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h1>Modifier un événement</h1>
         <?php if (isset($error_message)): ?>
-            <p class="error-message"><?= $error_message ?></p>
+        <p class="error-message"><?= $error_message ?></p>
         <?php endif; ?>
         <form action="edit_event.php?id=<?= $id_evenement ?>" method="post">
             <div class="form-group">
@@ -78,6 +78,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="btn">Modifier</button>
         </form>
     </div>
+
+    <a href="/">Back to home</a>
+
+    <!-- * Section - Footer -->
+    <footer> <br>
+
+        <!-- Droits Section : Informations sur les droits réservés et le créateur -->
+
+        <div class="droits">
+            <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                alt="Logo Onlineformationpro" width="100px" id="forma" class="logo-oblineformationpro">
+            <h6 style="display: flex; justify-content:center;">&copy; 2025 Projet_event | <a
+                    href=https://www.onlineformapro.com/ target=_blank> @onlineformapro</a></h6>
+        </div>
+    </footer>
 </body>
 
 </html>

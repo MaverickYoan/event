@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
     <div class="container">
-        <a href="/">Back to index</a>
+        <a href="/">Back to home</a>
         <h1>Inscription</h1>
         <?php if (isset($error_message)): ?>
         <p class="error-message"><?= $error_message ?></p>
@@ -70,6 +70,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </div>
 
+    <!-- * Section - Footer -->
+    <footer> <br>
+
+        <!-- Droits Section : Informations sur les droits réservés et le créateur -->
+
+        <div class="droits">
+            <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                alt="Logo Onlineformationpro" width="100px" id="forma" class="logo-oblineformationpro">
+            <h6 style="display: flex; justify-content:center;">&copy; 2025 Projet_event | <a
+                    href=https://www.onlineformapro.com/ target=_blank> @onlineformapro</a></h6>
+        </div>
+    </footer>
 </body>
 
 </html>

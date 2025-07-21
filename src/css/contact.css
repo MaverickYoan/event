@@ -1,458 +1,231 @@
-
-        .animated-bg,
-        .container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(45deg, rgb(61, 236, 13), rgba(187, 27, 27, 1), rgb(21, 142, 31), rgba(137, 8, 189, 1));
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-        }
-
-        /* Paramètre - .navbar */
-        .navbar {
-            position: fixed;
-            right: 0;
-            top: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            /* background-color: black; */
-            background-color: transparent;
-            padding: 10px 20px;
-        }
-
-
-        /* Paramètre - .nav-links */
-        .nav-links {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-
-        }
-
-       .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2em;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 400px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
-        h1 { color: white; text-align: center; }
-        .form-group { margin-bottom: 1.5em; }
-        .form-group label { display: block; color: white; margin-bottom: .5em; }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: .8em;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            box-sizing: border-box;
-        }
-        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(102, 118, 104, 0.7); }
-        .btn { 
-            width: 100%; 
-            padding: 1em; 
-            background-color: #fff; 
-            color:rgb(7, 87, 4); 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1em; 
-            transition: background-color 0.3s;
-        }
-        .btn:hover { background-color: #f0f0f0; }
-        .success-message { color:rgb(69, 225, 17); text-align: center; margin-top: 1em; }
-        .error-message { color:rgb(190, 135, 15); text-align: center; margin-top: 1em; }
-
-
-        /* Paramètre - .nav-links & li -  margin */
-        .nav-links li {
-            margin-top: 80px;
-            margin-left: 20px;
-        }
-
-        /* Paramètre - .nav-links & a -  margin */
-        .nav-links a {
-            /* color: white; */
-            color: white;
-            font-family: 'Montserrat', serif;
-            font-weight: 900;
-            font-size: 15pt;
-            text-decoration: none;
-            padding: 5px 10px;
-        }
-
-        .nav-links {
-            color: rgb(0, 0, 0);
-        }
-
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger-menu .bar {
-            width: 25px;
-            height: 3px;
-            background-color: rgb(255, 255, 255);
-            margin: 4px 0;
-            transition: 0.4s;
-        }
-
-        .links {
-            list-style-type: none;
-            text-decoration-style: none;
-        }
-
-        .error-message {
-            color: rgb(190, 135, 15);
-            text-align: center;
-            margin-top: 1em;
-        }
-
-
-        .contact-form {
-            z-index: -1;
-        }
-
-        @media (max-width: 768px) {
-
-            body {
-                align-items: center;
-                width: 100%;
-                /* height: 50vh;*/
-                color: black;
-                /* color: white; */
-                font-family: 'Montserrat', sans-serif;
-                margin: 0;
-                padding: 0;
-                /* background-color: black; */
-                background-color: white;
-                height: 100vh;
-            }
-
-            .navbar,
-            .nav-links,
-            .tagline,
-            .motto {
-                mix-blend-mode: difference;
-                z-index: 99;
-
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                font-size: 1rem;
-
-            }
-
-            .nav-links li {
-                margin: 10px 0;
-                text-align: center;
-                z-index: 99;
-            }
-
-            /* Disposition du menu burger */
-            .hamburger-menu {
-                display: flex;
-
-            }
-
-            .nav-links.active {
-                display: flex;
-                z-index: -1;
-
-            }
-
-            .hamburger-menu.active .bar:nth-child(1) {
-                transform: rotate(45deg) translate(10px, 5px);
-                /* transform: translateY(0px) rotate(-135deg); */
-            }
-
-            .hamburger-menu.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger-menu.active .bar:nth-child(3) {
-                transform: rotate(-45deg) translate(10px, -5px);
-                /* transform: translateY(0px) rotate(135deg); */
-            }
-
-            @keyframes gradientBG {
-                0% {
-                    background-position: 0% 50%;
-                }
-
-                50% {
-                    background-position: 100% 50%;
-                }
-
-                100% {
-                    background-position: 0% 50%;
-                }
-            }
-
-            .container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
-
-            .contact-form {
-                background: rgba(255, 255, 255, 0.1);
-                padding: 2em;
-                border-radius: 10px;
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                width: 100%;
-                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            }
-
-            h1 {
-                color: white;
-                text-align: center;
-            }
-
-            .form-group {
-                margin-bottom: 0.5em;
-            }
-
-            .form-group label {
-                display: block;
-                color: white;
-                margin-bottom: .5em;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                width: 100%;
-                padding: .8em;
-                border: none;
-                border-radius: 5px;
-                background: rgba(255, 255, 255, 0.2);
-                color: white;
-                box-sizing: border-box;
-            }
-
-            .form-group input::placeholder,
-            .form-group textarea::placeholder {
-                color: rgba(102, 118, 104, 0.7);
-            }
-
-            .btn {
-                width: 100%;
-                padding: 1em;
-                background-color: #fff;
-                color: rgb(7, 87, 4);
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                font-weight: bold;
-                font-size: 1em;
-                transition: background-color 0.3s;
-            }
-
-            .btn:hover {
-                background-color: #f0f0f0;
-            }
-
-            .success-message {
-                color: rgb(69, 225, 17);
-                text-align: center;
-                margin-top: 1em;
-            }
-
-            .error-message {
-                color: rgb(190, 135, 15);
-                text-align: center;
-                margin-top: 1em;
-            }
-
-            @media screen and (max-width: 768px) {
-                body {
-                    overflow: auto;
-                }
-
-                .contact-form {
-                    width: 90%;
-                    max-width: 400px;
-                }
-
-                .animated-bg,
-                .contact-form {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    z-index: ;
-                    background: linear-gradient(45deg, rgba(13, 28, 236, 1), rgba(131, 187, 27, 1), rgb(21, 142, 31), rgba(137, 8, 189, 1));
-                    background-size: 400% 400%;
-                    animation: gradientBG 15s ease infinite;
-                }
-
-                /* Paramètre - .navbar */
-                .navbar {
-                    position: fixed;
-                    right: 0;
-                    top: 0;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    align-items: center;
-                    /* background-color: black; */
-                    background-color: transparent;
-                    padding: 10px 20px;
-                }
-
-
-                /* Paramètre - .nav-links */
-                .nav-links {
-                    list-style: none;
-                    display: flex;
-                    margin: 0;
-                    padding: 0;
-
-                }
-
-                #links {
-                    font-size: 0.5rem;
-                }
-
-                /* Paramètre - .nav-links & li -  margin */
-                .nav-links li {
-                    margin-top: 80px;
-                    margin-left: 20px;
-                }
-
-                /* Paramètre - .nav-links & a -  margin */
-                .nav-links a {
-                    /* color: white; */
-                    color: white;
-                    font-family: 'Montserrat', serif;
-                    font-weight: 900;
-                    font-size: 15pt;
-                    text-decoration: none;
-                    padding: 5px 10px;
-                }
-
-                .nav-links {
-                    color: rgb(0, 0, 0);
-                }
-
-                .hamburger-menu {
-                    display: none;
-                    flex-direction: column;
-                    cursor: pointer;
-                }
-
-                .hamburger-menu .bar {
-                    width: 25px;
-                    height: 3px;
-                    background-color: rgb(255, 255, 255);
-                    margin: 4px 0;
-                    transition: 0.4s;
-                }
-
-                .links {
-                    list-style-type: none;
-                    text-decoration-style: none;
-                }
-
-                .error-message {
-                    color: rgb(190, 135, 15);
-                    text-align: center;
-                    margin-top: 1em;
-                }
-
-
-                .contact-form {
-                    z-index: -1;
-                }
-
-                @media (max-width: 768px) {
-
-                    body {
-                        align-items: center;
-                        width: 100%;
-                        /* height: 50vh;*/
-                        color: black;
-                        /* color: white; */
-                        font-family: 'Montserrat', sans-serif;
-                        margin: 0;
-                        padding: 0;
-                        /* background-color: black; */
-                        background-color: white;
-                        height: 100vh;
-                    }
-
-                    .navbar,
-                    .nav-links,
-                    .tagline,
-                    .motto {
-                        mix-blend-mode: difference;
-                        z-index: 99;
-
-                    }
-
-                    .nav-links {
-                        display: none;
-                        flex-direction: column;
-                        width: 100%;
-                        font-size: 1rem;
-
-                    }
-
-                    .nav-links li {
-                        margin: 10px 0;
-                        text-align: center;
-                        z-index: 99;
-                    }
-
-                    /* Disposition du menu burger */
-                    .hamburger-menu {
-                        display: flex;
-
-                    }
-
-                    .nav-links.active {
-                        display: flex;
-                        z-index: -1;
-
-                    }
-
-                    .hamburger-menu.active .bar:nth-child(1) {
-                        transform: rotate(45deg) translate(10px, 5px);
-                        /* transform: translateY(0px) rotate(-135deg); */
-                    }
-
-                    .hamburger-menu.active .bar:nth-child(2) {
-                        opacity: 0;
-                    }
-
-                    .hamburger-menu.active .bar:nth-child(3) {
-                        transform: rotate(-45deg) translate(10px, -5px);
-                        /* transform: translateY(0px) rotate(135deg); */
-                    }
-
-                }
+body {
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+/* Paramètre - .navbar */
+.navbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: black; */
+    background-color: transparent;
+    padding: 10px 20px;
+}
+
+
+/* Paramètre - .nav-links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2em;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 400px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+h1 { color: white; text-align: center; }
+.form-group { margin-bottom: 1.5em; }
+.form-group label { display: block; color: white; margin-bottom: .5em; }
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: .8em;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    box-sizing: border-box;
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(102, 118, 104, 0.7); }
+.btn { 
+    width: 100%; 
+    padding: 1em; 
+    background-color: #fff; 
+    color:rgb(7, 87, 4); 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    font-size: 1em; 
+    transition: background-color 0.3s;
+}
+
+.btn:hover { background-color: #f0f0f0; }
+    .success-message { color:rgb(69, 225, 17); text-align: center; margin-top: 1em; }
+    .error-message { color:rgb(190, 135, 15); text-align: center; margin-top: 1em; }
+
+
+/* Paramètre - .nav-links & li -  margin */
+.nav-links li {
+    margin-top: 80px;
+    margin-left: 20px;
+}
+
+/* Paramètre - .nav-links & a -  margin */
+.nav-links a {
+    /* color: white; */
+    color: white;
+    font-family: 'Montserrat', serif;
+    font-weight: 900;
+    font-size: 15pt;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.nav-links {
+    color: rgb(0, 0, 0);
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.links {
+    list-style-type: none;
+    text-decoration-style: none;
+}
+
+.error-message {
+    color: rgb(190, 135, 15);
+    text-align: center;
+    margin-top: 1em;
+}
+
+
+.contact-form {
+    z-index: -1;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow: auto;
+    }
+
+    .contact-form {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .animated-bg,
+    .contact-form {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgb(13, 191, 236), rgba(131, 187, 27, 1), rgb(21, 142, 31), rgba(137, 8, 189, 1));
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+    }
+
+    /* Paramètre - .navbar */
+    .navbar {
+        position: fixed;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        /* background-color: black; */
+        background-color: transparent;
+        padding: 10px 20px;
+    }
+
+
+    /* Paramètre - .nav-links */
+    .nav-links {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    #links {
+        font-size: 0.5rem;
+    }
+
+    /* Paramètre - .nav-links & li -  margin */
+    .nav-links li {
+        margin-top: 80px;
+        margin-left: 20px;
+    }
+
+    /* Paramètre - .nav-links & a -  margin */
+    .nav-links a {
+        /* color: white; */
+        color: white;
+        font-family: 'Montserrat', serif;
+        font-weight: 900;
+        font-size: 15pt;
+        text-decoration: none;
+        padding: 5px 10px;
+    }
+
+    .nav-links {
+        color: rgb(0, 0, 0);
+    }
+
+    .hamburger-menu {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .hamburger-menu .bar {
+        width: 25px;
+        height: 3px;
+        background-color: rgb(255, 255, 255);
+        margin: 4px 0;
+        transition: 0.4s;
+    }
+
+    .links {
+        list-style-type: none;
+        text-decoration-style: none;
+    }
+
+    .error-message {
+        color: rgb(190, 135, 15);
+        text-align: center;
+        margin-top: 1em;
+    }
+
+    .contact-form {
+        z-index: -1;
+    }
+}

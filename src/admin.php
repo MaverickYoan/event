@@ -62,22 +62,36 @@ $evenements = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </thead>
                 <tbody>
                     <?php foreach ($evenements as $event): ?>
-                        <tr>
-                            <td><?= htmlspecialchars($event['nom']) ?></td>
-                            <td><?= htmlspecialchars($event['date']) ?></td>
-                            <td><?= htmlspecialchars($event['places_disponibles']) ?></td>
-                            <td><a href="inscrits.php?id=<?= $event['id'] ?>"><?= $event['nb_inscrits'] ?></a></td>
-                            <td>
-                                <a href="edit_event.php?id=<?= $event['id'] ?>">Modifier</a>
-                                <a href="delete_event.php?id=<?= $event['id'] ?>"
-                                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">Supprimer</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td><?= htmlspecialchars($event['nom']) ?></td>
+                        <td><?= htmlspecialchars($event['date']) ?></td>
+                        <td><?= htmlspecialchars($event['places_disponibles']) ?></td>
+                        <td><a href="inscrits.php?id=<?= $event['id'] ?>"><?= $event['nb_inscrits'] ?></a></td>
+                        <td>
+                            <a href="edit_event.php?id=<?= $event['id'] ?>">Modifier</a>
+                            <a href="delete_event.php?id=<?= $event['id'] ?>"
+                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">Supprimer</a>
+                        </td>
+                    </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
     </div>
+
+
+    <!-- * Section - Footer -->
+    <footer> <br>
+
+        <!-- Droits Section : Informations sur les droits réservés et le créateur -->
+
+        <div class="droits">
+            <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                alt="Logo Onlineformationpro" width="100px" id="forma" class="logo-oblineformationpro">
+            <h6 style="display: flex; justify-content:center;">&copy; 2025 Projet_event | <a
+                    href=https://www.onlineformapro.com/ target=_blank> @onlineformapro</a></h6>
+        </div>
+    </footer>
     <script src="js/script.js"></script>
 </body>
 
