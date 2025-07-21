@@ -34,18 +34,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>    
+
+<body>
 
     <div class="container">
+        <a href="/">Back to index</a>
         <h1>Inscription</h1>
         <?php if (isset($error_message)): ?>
-            <p class="error-message"><?= $error_message ?></p>
+        <p class="error-message"><?= $error_message ?></p>
         <?php endif; ?>
         <form action="inscription.php" method="post">
             <div class="form-group">
@@ -60,11 +63,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="mot_de_passe">Mot de passe</label>
                 <input type="password" id="mot_de_passe" name="mot_de_passe" required>
             </div>
-            <button type="submit" class="btn-go">Vous serez inscrits<br><br><br><img src="uploads/ob_aea8c1_thanks.gif" width="30%" alt="retro gaming"> après le click</button>
+            <button type="submit" class="btn-go">Vous serez inscrits<br><br><br><img src="uploads/ob_aea8c1_thanks.gif"
+                    width="50%" alt="retro gaming"> après le click</button>
         </form>
-        
+
 
     </div>
 
 </body>
+
 </html>
