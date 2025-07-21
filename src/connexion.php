@@ -23,17 +23,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Connexion</h1>
         <?php if (isset($error_message)): ?>
-            <p class="error-message"><?= $error_message ?></p>
+        <p class="error-message"><?= $error_message ?></p>
         <?php endif; ?>
         <form action="connexion.php" method="post">
             <div class="form-group">
@@ -47,6 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="btn">Se connecter</button>
         </form>
     </div>
-    <div class="img-connex"><img src="uploads/alien_by_tek2ouf_01_dk2ytmg.jpg" width="30%" alt="alien_by_tek2ouf_01"></div>
+    <li><a href="/">Back to index</a></li>
+
+    <div class="img-connex"><img src="uploads/alien_by_tek2ouf_01_dk2ytmg.jpg" width="30%" alt="alien_by_tek2ouf_01">
+    </div>
 </body>
+
 </html>

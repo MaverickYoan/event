@@ -1,5 +1,6 @@
 <?php
 require_once 'database.php';
+session_start();
 
 // Create contact table if it doesn't exist
 try {
@@ -39,136 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../data/favicon.ico">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
     <title>Contact</title>
     <style>
-        .animated-bg,
-        .container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(45deg, rgb(61, 236, 13), rgba(187, 27, 27, 1), rgb(21, 142, 31), rgba(137, 8, 189, 1));
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-        }
-
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2em;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 100%;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
-
-        h1 {
-            color: white;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 0.5em;
-        }
-
-        .form-group label {
-            display: block;
-            color: white;
-            margin-bottom: .5em;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: .8em;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            box-sizing: border-box;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(102, 118, 104, 0.7);
-        }
-
-        .btn {
-            width: 100%;
-            padding: 1em;
-            background-color: #fff;
-            color: rgb(7, 87, 4);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1em;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #f0f0f0;
-        }
-
-        .success-message {
-            color: rgb(69, 225, 17);
-            text-align: center;
-            margin-top: 1em;
-        }
-
-        .error-message {
-            color: rgb(190, 135, 15);
-            text-align: center;
-            margin-top: 1em;
-        }
-
-        @media screen and (max-width: 768px) {
-            body {
-                overflow: auto;
-            }
-
-            .contact-form {
-                width: 90%;
-                max-width: 400px;
-            }
-
-            .animated-bg,
-            .contact-form {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: ;
-                background: linear-gradient(45deg, rgba(13, 28, 236, 1), rgba(131, 187, 27, 1), rgb(21, 142, 31), rgba(137, 8, 189, 1));
-                background-size: 400% 400%;
-                animation: gradientBG 15s ease infinite;
-            }
-        }
     </style>
 </head>
 
@@ -222,7 +96,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     </div>
-    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('hamburgerMenu').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>

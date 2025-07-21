@@ -1,0 +1,281 @@
+
+/* background: url(img/logo-onlineformapro-03.svg) no-repeat center center; */ 
+/* background-size: contain; */ 
+
+*::before, 
+::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+} 
+
+/* créer des contours sur tous les éléments de la page (permet un débogage rapide) 
+* { 
+    border: 1px solid blue; 
+} */ 
+
+body { 
+    width: 100%; 
+    color: white; 
+    font-family: 'Montserrat', sans-serif; 
+    background-color: black; 
+    /* background-color: white; */ 
+} 
+
+.navbar { 
+    position: fixed; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #000000; 
+    padding: 10px 20px; 
+    right: 0; 
+} 
+
+.nav-links { 
+    list-style: none; 
+    affichage : flex ; 
+    marge : 0 ; 
+    remplissage : 0 ; 
+} 
+
+.nav-links li { 
+    marge gauche : 20 px ; 
+} 
+
+.nav-links a { 
+    couleur : rgb(29, 255, 9) ; 
+    décoration de texte : aucune ; 
+    remplissage : 5 px 10 px ; 
+} 
+
+.hamburger-menu { 
+    affichage : aucun ; 
+    direction flexible : colonne ; 
+    curseur : pointeur ; 
+} 
+
+.hamburger-menu .bar { 
+    largeur : 25 px ; 
+    hauteur : 3 px ; 
+    couleur d’arrière-plan : blanc ; 
+    marge : 4 px 0 ; 
+    transition : 0,4 s ; 
+} 
+
+a { 
+    couleur : vert ; 
+    épaisseur de police : plus gras ; 
+} 
+@media (largeur maximale : 768 px) { 
+    .nav-links { 
+        affichage : aucun ; 
+        direction flexible : colonne ; 
+        largeur : 100 % ; 
+        droite : 0 ; 
+
+    } 
+
+    .nav-links li { 
+        marge : 10 px 0 ; 
+        text-align: center; 
+    } 
+
+    .hamburger-menu { 
+        display: flex; 
+    } 
+
+    .nav-links.active { 
+        display: flex; 
+    } 
+
+    .hamburger-menu.active .bar:nth-child(1) { 
+        /* transformation: rotation(45deg) translation(5px, 5px); */ 
+        transformation: translationY(0px) rotation(-135deg); 
+    } 
+
+    .hamburger-menu.active .bar:nth-child(2) { 
+        opacité: 0; 
+    } 
+
+    .hamburger-menu.active .bar:nth-child(3) { 
+        /* transformation: rotation(-45deg) translation(5px, -5px); */ 
+        transformation: translationY(0px) rotation(135deg); 
+    }
+} 
+
+/* BackToTop */ 
+/*_________________flèche retour en haut____________________*/ 
+/* flèche retour en haut */ 
+.back-to-top { 
+    /* Style de base */ 
+    background-color: oklch(100% 0 0); 
+    border: 2px solid currentColor; 
+    border-radius: 0.5rem; 
+    display: inline-block; 
+    padding: 0.3rem; 
+    /* Masqué par défaut */ 
+    position: fixed; 
+    inset: auto 2rem 2rem auto; 
+} 
+
+/* Utiliser la couleur du texte */ 
+.back-to-top:is(:link, :visited) { 
+    color: currentColor; 
+    text-decoration: none; 
+} 
+
+/* Masquer le texte retour en haut */ 
+.back-to-top span { 
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%); 
+    height: 1px; 
+    overflow: hidden; 
+    position: absolute; 
+    white-space: nowrap; 
+    width: 1px; 
+} 
+
+.back-to-top { 
+    --green : oklch(85,33 % 0,15 141,46) ; 
+} 
+
+/* animation progression de couleur la flèche */ 
+@keyframes progress { 
+    0% { 
+        --progress: 0%; 
+    } 
+
+    100 % { 
+        --progrès : 100 % ; 
+    } 
+} 
+
+/* animation de la flèche */ 
+.back-to-top { 
+    --green: oklch(85.33% 0.15 141.46); 
+    animation : progression linéaire ; 
+    chronologie d'animation : scroll(); 
+} 
+
+/* rotation de la flèche */ 
+.back-to-top svg { 
+    transform: rotate(var(--angle)); 
+} 
+
+/* propriétaire de la progression de la flèche */ 
+@property --progress { 
+    syntax: '<percentage>'; 
+    hérite : faux ; 
+    valeur initiale : 0 % ; 
+} 
+
+@property --angle { 
+    syntaxe : '<angle>'; 
+    hérite de : vrai ; 
+    valeur initiale : -90 degrés ; 
+} 
+
+@keyframes progression { 
+    0 % { 
+        --progress : 0 % ; 
+        --angle : 90 degrés ; 
+    } 
+
+    2 % { 
+        --angle : 90 degrés ; 
+
+    } 
+
+    100 % { 
+        --progress : 100 % ; 
+    } 
+} 
+
+@supports not (animation-timeline : scroll) { 
+    .back-to-top { 
+        background : var(--green); 
+    } 
+} 
+
+@media(prefers-reduced-motion : no-preference) { 
+    html { 
+        scroll-behavior : smooth ; 
+    } 
+} 
+
+#forma, .droits, .logo-oblineformationpro{ 
+    display : flex ;
+    justify-content: center; 
+    align-items: center; 
+} 
+
+/* * animation oiseau */ 
+.home { 
+    background: url(img/sky.jpg); 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    overflow: hidden; 
+} 
+
+.sky { 
+    position: absolute; 
+    top: 10%; 
+    right: -20px; 
+    animation: sky 30s linear 0s infinite reverse; 
+    z-index: 99; 
+} 
+
+.sky img { 
+    width: 100px; 
+} 
+
+/* trajectoire de l'oiseau */ 
+@keyframes sky { 
+    from { 
+        top: 300px; 
+        right: -50px; 
+    } 
+
+    to { 
+        top: 300px; 
+        right: 130%; 
+    } 
+} 
+
+
+.navbar, 
+.nav-links, h1, h2, p { 
+    mix-blend-mode: difference; 
+    font-weight: bolder; 
+    font-size: x-large; 
+} 
+
+/* * - FONDU D'ENTRÉE */ 
+h1, h2, p { 
+    -webkit-animation: fadein 10s; 
+    animation: fadein 10s; 
+    /* Safari et Chrome */ 
+} 
+
+@keyframes fadein { 
+    de { 
+        opacité: 0; 
+    } 
+
+    à { 
+        opacité: 1; 
+    } 
+} 
+
+@-webkit-keyframes fadein { 
+
+    /* sur Safari et Chrome */ 
+    de { 
+        opacité: 0; 
+    } 
+
+    à { 
+        opacité: 1; 
+    } 
+}
