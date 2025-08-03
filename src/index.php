@@ -44,41 +44,56 @@ try {
             <li><a href="http://localhost:8003/voir.php">Voir Dans la région</a></li>
             <li><a href="http://localhost:8003/contact.php">Contact</a></li>
             <?php if (isset($_SESSION['id_utilisateur'])): ?>
-            <li><a href="deconnexion.php">Déconnexion</a></li>
-            <?php if ($_SESSION['role'] == 'admin'): ?>
-            <li><a href="admin.php">Administration</a></li>
-            <?php endif; ?>
+                <li><a href="deconnexion.php">Déconnexion</a></li>
+                <?php if ($_SESSION['role'] == 'admin'): ?>
+                    <li><a href="admin.php">Administration</a></li>
+                <?php endif; ?>
             <?php else: ?>
-            <li><a href="inscription.php">Inscription</a></li>
-            <li><a href="connexion.php">Connexion</a></li>
+                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="connexion.php">Connexion</a></li>
             <?php endif; ?>
         </ul>
     </nav>
+
+
+    // * script mobile menu
+    document.getElementById('hamburgerMenu').addEventListener('click', function () {
+    this.classList.toggle('active');
+    document.getElementById('navLinks').classList.toggle('active');
+    });
+
+
+
+
+
+
+
+
 
 
     <div class="container">
         <h1>Événements à venir</h1>
         <div id="event-list">
             <?php if (empty($evenements)): ?>
-            <p>Aucun événement à venir pour le moment.</p>
+                <p>Aucun événement à venir pour le moment.</p>
             <?php else: ?>
-            <?php foreach ($evenements as $event): ?>
-            <div class="event">
-                <h3><?= htmlspecialchars($event['nom']) ?></h3>
-                <p class="date-lieu">Le <?= htmlspecialchars($event['date']) ?> à
-                    <?= htmlspecialchars($event['lieu']) ?></p>
-                <p><?= nl2br(htmlspecialchars($event['description'])) ?></p>
-                <?php if (!empty($event['image'])): ?>
-                <img src="<?= htmlspecialchars($event['image']) ?>"
-                    alt="Image de <?= htmlspecialchars($event['nom']) ?>" style="max-width: 200px; margin-top: 1em;">
-                <?php endif; ?><br><br>
-                <a href="evenement.php?id=<?= $event['id'] ?>" class="btn">Voir l'événement</a>
-                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
-                <a href="delete_event.php?id=<?= $event['id'] ?>" class="btn-delete"
-                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">Supprimer</a>
-                <?php endif; ?>
-            </div>
-            <?php endforeach; ?>
+                <?php foreach ($evenements as $event): ?>
+                    <div class="event">
+                        <h3><?= htmlspecialchars($event['nom']) ?></h3>
+                        <p class="date-lieu">Le <?= htmlspecialchars($event['date']) ?> à
+                            <?= htmlspecialchars($event['lieu']) ?></p>
+                        <p><?= nl2br(htmlspecialchars($event['description'])) ?></p>
+                        <?php if (!empty($event['image'])): ?>
+                            <img src="<?= htmlspecialchars($event['image']) ?>"
+                                alt="Image de <?= htmlspecialchars($event['nom']) ?>" style="max-width: 200px; margin-top: 1em;">
+                        <?php endif; ?><br><br>
+                        <a href="evenement.php?id=<?= $event['id'] ?>" class="btn">Voir l'événement</a>
+                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+                            <a href="delete_event.php?id=<?= $event['id'] ?>" class="btn-delete"
+                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?');">Supprimer</a>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
             <?php endif; ?>
         </div>
     </div>
